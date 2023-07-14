@@ -109,4 +109,3 @@ class Database:
     def select(self, table: str, )
         
         
-db.tables.Users.

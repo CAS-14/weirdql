@@ -1,0 +1,231 @@
+{
+    "users": {
+        "id": {
+            "datatype": "INTEGER",
+            "nullable": false,
+            "primary_key": true
+        },
+        "username": {
+            "datatype": "TEXT",
+            "nullable": false,
+            "unique": true
+        },
+        "hash": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "level": {
+            "datatype": "INTEGER",
+            "nullable": false
+        },
+        "created": {
+            "datatype": "INTEGER",
+            "nullable": false
+        },
+        "last_login": {
+            "datatype": "INTEGER",
+            "nullable": true
+        },
+        "first_ip": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "last_ip": {
+            "datatype": "TEXT",
+            "nullable": true
+        }
+    },
+    "posts": {
+        "id": {
+            "datatype": "INTEGER",
+            "nullable": false,
+            "primary_key": true
+        },
+        "board": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "thread": {
+            "datatype": "INTEGER",
+            "nullable": false
+        },
+        "old_filename": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "filename": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "filesize": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "fileres": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "comment": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "subject": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "author": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "mod_id": {
+            "datatype": "INTEGER",
+            "nullable": true,
+            "foreign_key": "users.id"
+        },
+        "parent": {
+            "datatype": "INTEGER",
+            "nullable": true,
+            "foreign_key": "posts.id"
+        },
+        "pinned": {
+            "datatype": "INTEGER",
+            "nullable": true
+        },
+        "locked": {
+            "datatype": "INTEGER",
+            "nullable": true
+        },
+        "time": {
+            "datatype": "INTEGER",
+            "nullable": false
+        },
+        "bump": {
+            "datatype": "INTEGER",
+            "nullable": true
+        },
+        "ip": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "deletion": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "deletion_time": {
+            "datatype": "INTEGER",
+            "nullable": true
+        }
+    },
+    "bans": {
+        "ip": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "reason": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "given": {
+            "datatype": "INTEGER",
+            "nullable": false
+        },
+        "expires": {
+            "datatype": "INTEGER",
+            "nullable": false
+        },
+        "board": {
+            "datatype": "TEXT",
+            "nullable": true,
+            "foreign_key": "boards.name"
+        }
+    },
+    "watchlist": {
+        "ip": {
+            "datatype": "TEXT",
+            "nullable": false,
+            "unique": true
+        },
+        "ban_hours": {
+            "datatype": "INTEGER",
+            "nullable": false,
+            "default": "0"
+        },
+        "site_bans": {
+            "datatype": "INTEGER",
+            "nullable": false,
+            "default": "0"
+        },
+        "board_bans": {
+            "datatype": "INTEGER",
+            "nullable": false,
+            "default": "0"
+        },
+        "first_banned": {
+            "datatype": "INTEGER",
+            "nullable": true
+        },
+        "last_banned": {
+            "datatype": "INTEGER",
+            "nullable": true
+        },
+        "reasons": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "note": {
+            "datatype": "TEXT",
+            "nullable": true
+        }
+    },
+    "boards": {
+        "name": {
+            "datatype": "TEXT",
+            "nullable": false,
+            "unique": true
+        },
+        "title": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "description": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "css_file": {
+            "datatype": "TEXT",
+            "nullable": true
+        },
+        "rules": {
+            "datatype": "TEXT",
+            "nullable": true
+        }
+    },
+    "logs": {
+        "id": {
+            "datatype": "INTEGER",
+            "nullable": false,
+            "primary_key": true
+        },
+        "ip": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "user": {
+            "datatype": "INTEGER",
+            "nullable": true,
+            "foreign_key": "users.id"
+        },
+        "action": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "description": {
+            "datatype": "TEXT",
+            "nullable": false
+        },
+        "time": {
+            "datatype": "INTEGER",
+            "nullable": false
+        }
+    }
+}
